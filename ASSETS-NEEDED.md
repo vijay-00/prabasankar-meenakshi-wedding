@@ -74,8 +74,8 @@ Three synthesised options are in `assets/_preview/` — open
 
 Served artwork is **1.08 MB** across 14 files, down from 8.39 MB. Every piece
 is a WebP sized to twice the width it actually renders at, which is what a 2x
-screen needs and no more. The worst offender was : 1.2 MB to fill 46
+screen needs and no more. The worst offender was `vel.png`: 1.2 MB to fill 46
 display pixels, now 32 KB.
 
-Originals are kept in  and in this repo's history. Nothing
+Originals are kept in `assets/img/_src/` and in this repo's history. Nothing
 links to that folder, so it costs no bandwidth even if it is deployed.
