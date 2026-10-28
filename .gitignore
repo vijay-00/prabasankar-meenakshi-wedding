@@ -9,3 +9,6 @@ desktop.ini
 
 # node, if a build is ever added
 node_modules/
+
+# netlify CLI link state
+.netlify/
