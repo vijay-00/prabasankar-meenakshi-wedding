@@ -90,3 +90,32 @@ Taken from the printed card (Murugan + gopuram artwork):
 | Maroon ink | `#7A1225` / `#53101C` |
 | Temple gold | `#C19A3B` / `#E6CE8C` |
 | Peacock green | `#1C6A6E` |
+
+---
+
+## Publishing
+
+Live at **https://vijay-00.github.io/prabasankar-meenakshi-wedding/**
+
+GitHub Pages serves the **`gh-pages`** branch, not `main`. That branch holds
+only what the site actually serves — `index.html`, the WebP artwork, the music
+and a `.nojekyll` marker. The source originals in `assets/img/_src/`, the music
+previews and the docs stay on `main` and are never published.
+
+**Pushing to `main` does not update the live site.** `gh-pages` is built
+deliberately, so rebuild it after a change:
+
+```bash
+# from the project root, on main, with a clean working tree
+export GIT_INDEX_FILE=/tmp/ghpages.index && rm -f "$GIT_INDEX_FILE"
+touch .nojekyll
+git add --force .nojekyll index.html assets/music.mp3 assets/music-placeholder.wav
+git add --force assets/img/*.webp assets/img/*.svg
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree "$TREE" -m "Publish")
+unset GIT_INDEX_FILE && rm -f .nojekyll
+git branch -f gh-pages "$COMMIT" && git push -f origin gh-pages
+```
+
+It uses a temporary git index so the working tree is never touched — no branch
+switching, nothing to stash.
