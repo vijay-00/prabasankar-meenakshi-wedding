@@ -107,15 +107,17 @@ deliberately, so rebuild it after a change:
 
 ```bash
 # from the project root, on main, with a clean working tree
-export GIT_INDEX_FILE=/tmp/ghpages.index && rm -f "$GIT_INDEX_FILE"
+export GIT_INDEX_FILE=.git/ghpages.index && rm -f "$GIT_INDEX_FILE"
 touch .nojekyll
 git add --force .nojekyll index.html assets/music.mp3 assets/music-placeholder.wav
 git add --force assets/img/*.webp assets/img/*.svg
 TREE=$(git write-tree)
 COMMIT=$(git commit-tree "$TREE" -m "Publish")
-unset GIT_INDEX_FILE && rm -f .nojekyll
+unset GIT_INDEX_FILE && rm -f .git/ghpages.index .nojekyll
 git branch -f gh-pages "$COMMIT" && git push -f origin gh-pages
 ```
 
 It uses a temporary git index so the working tree is never touched — no branch
-switching, nothing to stash.
+switching, nothing to stash. Keep that index inside `.git/`: on a long path
+Git fails to create its lock file with "Filename too long", and the publish
+then silently commits nothing while the push still reports success.
