@@ -9,19 +9,19 @@ site is now your own artwork, with one exception noted below.
 
 | File | What | Where it appears |
 |---|---|---|
-| `murugan.png` | Baby Murugan with vel & peacock | Opening screen (large, haloed) + first card |
-| `garland.png` | Jasmine / marigold / mango-leaf garland with bells | Strip across the top of the opening screen |
-| `mandala.png` | Gold mandala | Slow-rotating watermark behind **all 9 cards** |
-| `medallion.png` | Gold diamond ornament with pearls | Above each section heading |
-| `mandap.png` | Ornate wedding mandap | Venue card — main picture |
-| `feather.png` | Peacock feather | Floating accents on 4 cards |
-| `lotus.png` | Pink & gold lotus | Top of the final card |
-| `div-lotus.png` | Lotus divider rule | Main dividers |
-| `div-beaded.png` | Beaded divider rule | Small dividers |
-| `div-scroll.png` | Scrollwork divider | Between bride & groom, and between the two families |
+| `murugan.webp` | Murugan with his consort and peacock | Opening screen (large, haloed) + first card |
+| `garland.webp` | Jasmine / marigold / mango-leaf garland with bells | Strip across the top of the opening screen |
+| `mandala.webp` | Gold mandala | Slow-rotating watermark behind **all 9 cards** |
+| `medallion.webp` | Gold diamond ornament with pearls | Above each section heading |
+| `mandap.webp` | Ornate wedding mandap | Venue card — main picture |
+| `feather.webp` | Peacock feather | Floating accents on 4 cards |
+| `lotus.webp` | Pink & gold lotus | Top of the final card |
+| `div-lotus.webp` | Lotus divider rule | Main dividers |
+| `div-beaded.webp` | Beaded divider rule | Small dividers |
+| `div-scroll.webp` | Scrollwork divider | Between bride & groom, and between the two families |
 | `couple.webp` | Photograph of the couple | Couple card — under the heading, above the groom |
-| `vel.png` | Murugan's vel with garland and silk | Above **ஸ்ரீ முருகன் துணை** on the formal invitation card |
-| `orn-sprig.png` | Slim floral sprig | Mirrored pair flanking the big "22" (tablet & desktop only — hidden under 430px so it doesn't crowd a phone) |
+| `vel.webp` | Murugan's vel with garland and silk | Above **ஸ்ரீ முருகன் துணை** on the formal invitation card |
+| `orn-sprig.webp` | Slim floral sprig | Mirrored pair flanking the big "22" (tablet & desktop only — hidden under 430px so it doesn't crowd a phone) |
 
 ### What I did to this batch
 
@@ -74,7 +74,7 @@ Three synthesised options are in `assets/_preview/` — open
 
 Served artwork is **1.08 MB** across 14 files, down from 8.39 MB. Every piece
 is a WebP sized to twice the width it actually renders at, which is what a 2x
-screen needs and no more. The worst offender was `vel.png`: 1.2 MB to fill 46
+screen needs and no more. The worst offender was `vel.webp`: 1.2 MB to fill 46
 display pixels, now 32 KB.
 
 Originals are kept in `assets/img/_src/` and in this repo's history. Nothing
