@@ -457,16 +457,36 @@ h2.title[data-l="ta"]{font-family:var(--f-ta);font-weight:600;letter-spacing:0}
    ============================================================ */
 #gate{
   position:fixed;inset:0;z-index:50;background:var(--paper);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:46px 20px 30px;text-align:center;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  /* The toranam hangs 98px down into the gate. This box centres its content,
+     so the moment the viewport is short — which on a phone is always, once the
+     address bar takes its cut — the content rides up and the blessing lands
+     behind the bells. Reserving the garland's height is what guarantees the
+     clearance; centring cannot be trusted to provide it. */
+  padding:118px 20px 40px;text-align:center;
+  /* The doors slide out sideways, so x must stay hidden. y must NOT: reserving
+     that space can leave too little for the rest on a small phone, and the one
+     thing that must never be clipped is the button that opens the invitation. */
+  overflow-x:hidden;overflow-y:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
   transition:opacity .9s ease,transform .9s ease;
 }
 #gate.gone{pointer-events:none}
+#gate::-webkit-scrollbar{width:0;height:0}
 #gate .toranam{position:absolute;top:0;left:0;z-index:2}
-#gate .frame{position:absolute;inset:14px;border:1px solid rgba(193,154,59,.5);pointer-events:none;z-index:2}
+/* fixed, not absolute: the gate scrolls now, and an absolute backdrop scrolls
+   with it — the frame would ride up off the content and the paper would run out
+   underneath. Fixed also sidesteps the scrollbar, which was shaving the doors
+   short of the right edge and letting a strip of page show through. */
+#gate .frame{position:fixed;inset:14px;border:1px solid rgba(193,154,59,.5);pointer-events:none;z-index:2}
 #gate .frame::before{content:"";position:absolute;inset:6px;border:1px solid rgba(193,154,59,.28)}
-#gate .inner{position:relative;z-index:3;max-width:430px;width:100%}
-#gate .wm{opacity:.07}
+/* Auto margins centre exactly like justify-content:center when there is room,
+   but unlike it they never clip the top when the content overflows. */
+#gate .inner{position:relative;z-index:3;max-width:430px;width:100%;margin:auto 0}
+/* On a short screen, trim Murugan so it rarely has to scroll at all. */
+@media (max-height:780px){ #gate .inner .deity{width:min(200px,50%)} }
+@media (max-height:660px){ #gate .inner .deity{width:min(164px,42%)} }
+#gate .wm{position:fixed;opacity:.07}
 
 /* ============================================================
    CINEMATIC OPEN
@@ -480,7 +500,7 @@ h2.title[data-l="ta"]{font-family:var(--f-ta);font-weight:600;letter-spacing:0}
    nothing for them to carry away and the parting shows no gap. */
 #gate{background:transparent}
 #gate .door{
-  position:absolute;top:0;bottom:0;width:50.4%;   /* the overlap hides the seam */
+  position:fixed;top:0;bottom:0;width:50.4%;      /* the overlap hides the seam */
   background:var(--paper);z-index:1;
   transition:transform 1.2s cubic-bezier(.62,.03,.26,1);
   will-change:transform;
@@ -519,7 +539,7 @@ h2.title[data-l="ta"]{font-family:var(--f-ta);font-weight:600;letter-spacing:0}
 
 /* one pass of gold light, timed to cross the names as they land */
 #gate .sweep{
-  position:absolute;inset:0;z-index:4;pointer-events:none;
+  position:fixed;inset:0;z-index:4;pointer-events:none;
   background:linear-gradient(105deg,transparent 38%,rgba(255,247,214,.45) 47%,
              rgba(255,255,255,.7) 50%,rgba(255,247,214,.45) 53%,transparent 62%);
   animation:ciSweep 1.6s cubic-bezier(.4,0,.2,1) both;animation-delay:1.35s;
