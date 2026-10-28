@@ -70,17 +70,12 @@ Three synthesised options are in `assets/_preview/` — open
 
 ---
 
-## One thing to know before hosting
+## Image weight — done 28 Oct 2026
 
-The images total **7.8 MB**. That's fine on wifi but slow on patchy mobile data,
-which is how most guests will open it. Nothing is broken — it just takes a few
-seconds on a weak connection. When you're ready to host, say so and I'll
-compress them (convert to WebP and size each one to how big it actually renders).
-That typically cuts it to well under 1 MB with no visible difference. Not worth
-doing until the artwork is final.
+Served artwork is **1.08 MB** across 14 files, down from 8.39 MB. Every piece
+is a WebP sized to twice the width it actually renders at, which is what a 2x
+screen needs and no more. The worst offender was : 1.2 MB to fill 46
+display pixels, now 32 KB.
 
-The four heaviest: `mandap.png` 1.4 MB, `feather.png` 1.3 MB,
-`mandala.png` 1.2 MB, `garland.png` 1.0 MB.
-
-Original uncompressed files are kept in `assets/img/_src/` (5.4 MB). **Delete
-that folder before you deploy** — it isn't needed by the site.
+Originals are kept in  and in this repo's history. Nothing
+links to that folder, so it costs no bandwidth even if it is deployed.
