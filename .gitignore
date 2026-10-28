@@ -1,0 +1,11 @@
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+
+# node, if a build is ever added
+node_modules/

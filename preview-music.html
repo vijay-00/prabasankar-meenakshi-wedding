@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Music options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@400;500&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#7A1225; --maroon-deep:#53101C; --maroon-soft:#9B2B3C;
+    --gold:#C19A3B; --gold-dk:#8E6E1E; --gold-lt:#E6CE8C;
+    --paper:#FFFDF7; --ink:#3A2A21;
+    --f-ui:'Jost',sans-serif; --f-disp:'Marcellus',serif; --f-serif:'Cormorant Garamond',serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:34px 16px 60px;background:linear-gradient(170deg,#FFFDF7,#F7F0DE);
+    font-family:var(--f-serif);color:var(--ink);min-height:100vh;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+  h1{font-family:var(--f-disp);color:var(--maroon);font-size:26px;text-align:center;margin:0 0 4px;font-weight:400}
+  .sub{text-align:center;font-size:14px;color:var(--gold-dk);font-style:italic;margin:0 0 26px}
+  .opt{
+    background:var(--paper);border:1px solid rgba(193,154,59,.42);border-radius:16px;
+    padding:18px 18px 16px;margin-bottom:14px;
+    box-shadow:0 8px 22px -16px rgba(83,16,28,.5);
+  }
+  .opt h2{font-family:var(--f-disp);font-size:18px;color:var(--maroon);margin:0 0 2px;font-weight:400}
+  .tag{font-family:var(--f-ui);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dk)}
+  .opt p{font-size:14.5px;line-height:1.65;margin:8px 0 14px;color:#5A463A}
+  .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  button{
+    font-family:var(--f-ui);font-size:12.5px;letter-spacing:.08em;font-weight:500;cursor:pointer;
+    padding:10px 20px;border-radius:999px;border:1px solid var(--maroon);
+    background:linear-gradient(170deg,var(--maroon-soft),var(--maroon) 55%,var(--maroon-deep));
+    color:var(--gold-lt);transition:filter .2s,transform .15s;
+  }
+  button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  button.playing{background:rgba(193,154,59,.14);color:var(--maroon);border-color:var(--gold)}
+  .len{font-family:var(--f-ui);font-size:11px;letter-spacing:.14em;color:var(--gold-dk);text-transform:uppercase}
+  .song{border-color:rgba(122,18,37,.4);background:linear-gradient(170deg,#FFFDF7,#FBF3E4)}
+  .note{
+    margin-top:26px;padding:16px 18px;border-left:3px solid var(--gold);
+    background:rgba(193,154,59,.08);border-radius:0 10px 10px 0;font-size:14px;line-height:1.7;
+  }
+  .note b{color:var(--maroon);font-family:var(--f-disp);font-weight:400}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) body{background:linear-gradient(170deg,#241018,#1A0C12);color:#E8DCCF}
+    :root:not([data-theme="light"]) .opt{background:rgba(255,253,247,.05);border-color:rgba(193,154,59,.3)}
+    :root:not([data-theme="light"]) .opt p{color:#C9B8A8}
+    :root:not([data-theme="light"]) h1,:root:not([data-theme="light"]) .opt h2{color:var(--gold-lt)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Music for the invitation</h1>
+  <p class="sub">Listen, then tell me which one and where it goes</p>
+
+  <div class="opt song">
+    <span class="tag">Your file &nbsp;·&nbsp; already installed</span>
+    <h2>The song you sent</h2>
+    <p>Plays from the moment the temple doors part, and loops. This is live on the
+      site right now — nothing to decide unless you want it somewhere else too.</p>
+    <div class="row">
+      <button data-src="assets/music.mp3">Play</button>
+      <span class="len">2 min 28 sec</span>
+    </div>
+  </div>
+
+  <div class="opt">
+    <span class="tag">Option 1 &nbsp;·&nbsp; one-shot</span>
+    <h2>Getti Melam</h2>
+    <p>The nadaswaram-and-thavil burst played at the muhurtham itself. Short and
+      ceremonial — it would sound <em>as the doors open</em>, then hand over to your
+      song. This is the one I'd pick: it is triggered by the tap, so it always plays.</p>
+    <div class="row">
+      <button data-src="assets/_preview/opt1-getti-melam.wav">Play</button>
+      <span class="len">6 sec</span>
+    </div>
+  </div>
+
+  <div class="opt">
+    <span class="tag">Option 2 &nbsp;·&nbsp; loops</span>
+    <h2>Temple bells &amp; shruti</h2>
+    <p>Calm and unhurried — a bell over a drone, the sound of walking into a
+      kovil. Suits the opening screen if you would rather it felt still than festive.</p>
+    <div class="row">
+      <button data-src="assets/_preview/opt2-temple-bells.wav">Play</button>
+      <span class="len">14 sec, seamless</span>
+    </div>
+  </div>
+
+  <div class="opt">
+    <span class="tag">Option 3 &nbsp;·&nbsp; loops</span>
+    <h2>Nadaswaram melody</h2>
+    <p>A slow phrase in Mohanam, the auspicious pentatonic raga, over a shruti
+      drone. Stately rather than celebratory. Good under the opening screen.</p>
+    <div class="row">
+      <button data-src="assets/_preview/opt3-nadaswaram.wav">Play</button>
+      <span class="len">16 sec, seamless</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>One thing worth knowing.</b> No sound can play before a guest touches the
+    screen — every browser blocks it, and the opening screen is before that first
+    touch. So music on the opening screen would stay silent for most people.
+    That is why Option&nbsp;1 is a flourish at the <em>moment</em> the doors part,
+    rather than a song before it: the tap is what unlocks the audio.
+  </div>
+
+</div>
+
+<script>
+  var cur = null, curBtn = null;
+  document.querySelectorAll('button[data-src]').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (cur){ cur.pause(); cur = null; }
+      if (curBtn){ curBtn.classList.remove('playing'); curBtn.textContent = 'Play'; }
+      if (curBtn === b){ curBtn = null; return; }        // same button = stop
+      cur = new Audio(b.dataset.src);
+      cur.volume = 0.55;
+      cur.play().catch(function(){});
+      b.classList.add('playing'); b.textContent = 'Stop';
+      curBtn = b;
+      cur.addEventListener('ended', function(){
+        b.classList.remove('playing'); b.textContent = 'Play'; cur = null; curBtn = null;
+      });
+    });
+  });
+</script>
+</body>
+</html>
