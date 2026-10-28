@@ -289,21 +289,23 @@ body.open #hd{opacity:1;transform:none;pointer-events:auto}
 /* the couple, under the heading that names them. Contained rather than bled
    like the mandapam: that is a scene and wants the full width, this is a pair
    of figures and needs air around them to read as figures. */
-/* The file carries 176px of transparent padding on its left so the FIGURES sit
-   centred rather than the bounding box — the pallu drape stretches right with
-   almost no visual weight and was pulling the box off the bodies. The width is
-   1.163x what it would otherwise be, to cancel that padding and keep the couple
-   the same apparent size. */
-.couple-art{position:relative;display:block;width:min(100%,419px);margin:14px auto 2px}
+/* A standing portrait, so it is sized by HEIGHT, not width: matching the card's
+   419px of width would make it 774px tall and swallow the card. 230px wide is
+   also below the file's own 329px, so it is never upscaled — the source is only
+   375px across and there is no detail to invent. The file carries 20px of
+   transparent padding on its right so the COUPLE sits centred, not the box. */
+.couple-art{position:relative;display:block;width:min(100%,230px);margin:16px auto 4px}
 .couple-art img{display:block;width:100%;height:auto;
-  filter:drop-shadow(0 15px 22px rgba(142,110,30,.28))}
-/* The groom's veshti is cream and the card is cream, so without something
-   beneath him he floats. A soft ellipse gives them ground to stand on. */
+  /* a warmer, tighter shadow than the illustration had — gold glow reads as
+     artwork, a photograph wants to look like it is standing on the card */
+  filter:drop-shadow(0 14px 20px rgba(83,16,28,.26))}
+/* His veshti is cream and the card is cream, so without something beneath him
+   he floats. A soft ellipse gives them ground to stand on. */
 .couple-art::after{content:"";position:absolute;left:50%;bottom:1%;
-  transform:translateX(-50%);width:62%;height:8%;border-radius:50%;
+  transform:translateX(-50%);width:66%;height:5%;border-radius:50%;
   background:radial-gradient(ellipse at center,rgba(142,110,30,.26),rgba(142,110,30,0) 72%);
   pointer-events:none}
-@media (max-width:430px){.couple-art{width:min(100%,316px);margin-top:10px}}
+@media (max-width:430px){.couple-art{width:min(100%,196px);margin-top:12px}}
 
 /* ============================================================
    TYPOGRAPHY
@@ -738,7 +740,7 @@ footer .sep{color:var(--gold);margin:0 7px}
       <p class="eyebrow rv" data-l="ta" lang="ta">மணமக்கள்</p>
 
       <div class="couple-art rv d1">
-        <img src="assets/img/couple.webp" alt="" loading="lazy" width="1000" height="810">
+        <img src="assets/img/couple.webp" alt="" loading="lazy" width="329" height="571">
       </div>
 
       <div class="person rv d2">

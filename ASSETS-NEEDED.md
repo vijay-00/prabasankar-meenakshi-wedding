@@ -19,7 +19,7 @@ site is now your own artwork, with one exception noted below.
 | `div-lotus.png` | Lotus divider rule | Main dividers |
 | `div-beaded.png` | Beaded divider rule | Small dividers |
 | `div-scroll.png` | Scrollwork divider | Between bride & groom, and between the two families |
-| `couple.webp` | Illustrated bride & groom | Couple card — under the heading, above the groom |
+| `couple.webp` | Photograph of the couple | Couple card — under the heading, above the groom |
 | `vel.png` | Murugan's vel with garland and silk | Above **ஸ்ரீ முருகன் துணை** on the formal invitation card |
 | `orn-sprig.png` | Slim floral sprig | Mirrored pair flanking the big "22" (tablet & desktop only — hidden under 430px so it doesn't crowd a phone) |
 
